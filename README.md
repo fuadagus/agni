@@ -6,8 +6,21 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
-##Nama Project: AGNI - Aplikasi WebGIS untuk Pemantauan Titik Api di Indonesia
-##Deskripsi Project: AGNI adalah aplikasi webGIS yang digunakan untuk memantau titik api di Indonesia. Data titik api yang diperoleh dari satelit NASA secara Real-time 7/24 update setiap hari. Aplikasi ini dibangun menggunakan framework Laravel dan LeafletJS. Aplikasi ini memiliki fitur-fitur seperti menampilkan titik api, menampilkan informasi temperatur, menampilkan validasi dari pemantau, routing ke titik api dan analisis resiko kebakaran.
-##Komponen Pembangun: Laravel, LeafletJS, Bootstrap, PostGeSQL, Terraformer, NASA API, Geoserver.
-##Sumber data: https://firms.modaps.eosdis.nasa.gov/
 
+<p>
+Nama Project: AGNI - Aplikasi WebGIS untuk Pemantauan Titik Api di Indonesia
+</p>
+
+<p >
+Deskripsi Project: 
+<br>
+AGNI adalah aplikasi webGIS yang digunakan untuk memantau titik api di Indonesia. Data titik api yang diperoleh dari satelit NASA secara Real-time 7/24 update setiap hari. Aplikasi ini dibangun menggunakan framework Laravel dan LeafletJS. Aplikasi ini memiliki fitur-fitur seperti menampilkan titik api, menampilkan informasi temperatur, menampilkan validasi dari pemantau, routing ke titik api dan analisis resiko kebakaran.
+</p>
+<p>
+Komponen Pembangun: Laravel, LeafletJS, Bootstrap, PostGeSQL, Terraformer, NASA API, Geoserver.
+<br>
+</p>
+<p>
+Sumber data: https://firms.modaps.eosdis.nasa.gov/
+<br>
+</p>
