@@ -7,6 +7,7 @@ use App\Http\Controllers\PointController;
 use App\Http\Controllers\PolylineController;
 use App\Http\Controllers\PolygonController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ApiController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -19,6 +20,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/api/fetch-fires-data', [ApiController::class, 'fetchFiresData'])->name('api.fetch-fires-data');
 
 Route::get('/',[MapController::class, 'index'])->name('index');
 Route::get('/table',[MapController::class, 'table'])->name('table');

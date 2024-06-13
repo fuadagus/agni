@@ -25,6 +25,8 @@
 
 
 @section('script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="[path to js]/L.Geoserver.js"></script>
     <script>
         // Map
         var map = L.map('map').setView([-7.7956, 110.3695], 13);
@@ -58,6 +60,43 @@
             point.addData(data);
             map.addLayer(point);
         });
+        var firePoint = L.geoJson(null, {
+    onEachFeature: function(feature, layer) {
+        var popupContent = "Temperatur IF4: " + feature.properties.brightness + "<br>" +
+            "Daya radiasi: " + feature.properties.frp + "MW" + "<br>" +
+            "Tanggal/Waktu: " + feature.properties.acq_datetime + "<br>" +
+            "Kepercayaan: " + feature.properties.confidence;
+
+        layer.bindPopup(popupContent);
+
+        layer.on({
+            mouseover: function(e) {
+                layer.bindTooltip(feature.properties.latitude);
+            }
+        });
+    }
+});
+
+$.getJSON("{{ route('api.fetch-fires-data') }}", function(data) {
+    firePoint.addData(data);
+    map.addLayer(firePoint);
+}).fail(function(jqXHR, textStatus, errorThrown) {
+    console.error('Error fetching NASA FIRMS data:', textStatus, errorThrown);
+});
+
+// var wfsLayer = L.Geoserver.wfs("https://firms.modaps.eosdis.nasa.gov/mapserver/wfs/SouthEast_Asia/YourMapKey/?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAME=ms:fires_snpp_7days&STARTINDEX=0&COUNT=1000&SRSNAME=urn:ogc:def:crs:EPSG::4326&BBOX=-90,-180,90,180,urn:ogc:def:crs:EPSG::4326&outputformat=geojson/geoserver/wfs", {
+//   layers: "topp:tasmania_roads",
+// });
+// wfsLayer.addTo(map);
+
+        //retrieve and visualize points from wfs layer
+        // var wfsLayer = L.Geoserver.wfs("https://firms.modaps.eosdis.nasa.gov/mapserver/wfs/SouthEast_Asia/b908b453e6302e29f9be4f5f5b5533b1/?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAME=ms:fires_snpp_7days&STARTINDEX=0&COUNT=1000&SRSNAME=urn:ogc:def:crs:EPSG::4326&BBOX=-90,-180,90,180,urn:ogc:def:crs:EPSG::4326&outputformat=geojson/geoserver/wfs", {
+        //     layers: "fires_snpp_7days",
+        // });
+        // wfsLayer.addTo(map);
+
+        /* GeoJSON Point */
+
         /* GeoJSON Polyline */
         var polyline = L.geoJson(null, {
             onEachFeature: function(feature, layer) {

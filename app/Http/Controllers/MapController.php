@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+
+
 class MapController extends Controller
 {
     public function index()
     {
         $data = [
-            "title" => "API",
+            "title" => "AGNI",
         ];
 
         //Check if user is login

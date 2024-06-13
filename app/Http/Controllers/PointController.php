@@ -16,6 +16,7 @@ class PointController extends Controller
      */
     public function index()
     {
+       
         $points = $this->point->points();
 
         foreach ($points as $p) {
