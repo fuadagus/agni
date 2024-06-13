@@ -23,5 +23,23 @@ class ApiController extends Controller
             return response()->json(['error' => 'Exception occurred: ' . $e->getMessage()], 500);
         }
     }
+
+    //api for getting batas_kabupaten http://localhost:8443/geoserver/pgwebl_responsi/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=pgwebl_responsi%3Abatas_kabupaten&maxFeatures=50&outputFormat=application%2Fjson
+    public function fetchBatasKabupaten(){
+        $wfsUrl = "http://localhost:8443/geoserver/pgwebl_responsi/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=pgwebl_responsi%3Abatas_kabupaten&outputFormat=application%2Fjson";
+
+        try {
+            $response = Http::withoutVerifying()->get($wfsUrl);
+
+            if ($response->successful()) {
+                return $response->json();
+            } else {
+                return response()->json(['error' => 'Failed to fetch data from NASA FIRMS'], $response->status());
+            }
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Exception occurred: ' . $e->getMessage()], 500);
+        }
+    }
+
 }
 

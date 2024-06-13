@@ -204,6 +204,29 @@
 
             drawnItems.addLayer(layer);
         });
+        var firePoint = L.geoJson(null, {
+    onEachFeature: function(feature, layer) {
+        var popupContent = "Temperatur IF4: " + feature.properties.brightness + "<br>" +
+            "Daya radiasi: " + feature.properties.frp + "MW" + "<br>" +
+            "Tanggal/Waktu: " + feature.properties.acq_datetime + "<br>" +
+            "Kepercayaan: " + feature.properties.confidence;
+
+        layer.bindPopup(popupContent);
+
+        layer.on({
+            mouseover: function(e) {
+                layer.bindTooltip(feature.properties.latitude);
+            }
+        });
+    }
+});
+
+$.getJSON("{{ route('api.fetch-fires-data') }}", function(data) {
+    firePoint.addData(data);
+    map.addLayer(firePoint);
+}).fail(function(jqXHR, textStatus, errorThrown) {
+    console.error('Error fetching NASA FIRMS data:', textStatus, errorThrown);
+});
 
             /* GeoJSON Point */
             var point = L.geoJson(null, {

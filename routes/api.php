@@ -3,6 +3,7 @@
 use App\Http\Controllers\PointController;
 use App\Http\Controllers\PolylineController;
 use App\Http\Controllers\PolygonController;
+use App\Http\Controllers\ApiController; // Import the missing class
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,5 @@ Route::get('/polylines', [PolylineController::class, 'index'])->name('api.polyli
 Route::get('/polyline/{id}', [PolylineController::class, 'show'])->name('api.polyline');
 Route::get('/polygons', [PolygonController::class, 'index'])->name('api.polygons');
 Route::get('/polygon/{id}', [PolygonController::class, 'show'])->name('api.polygon');
+Route::get('/api/fetch-fires-data', [ApiController::class, 'fetchFiresData'])->name('api.fetch-fires-data');
+// Route::get('/fetch-batas-kabupaten', [ApiController::class, 'fetchBatasKabupaten'])->name('api.fetch-batas-kabupaten');

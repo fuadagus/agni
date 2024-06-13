@@ -21,10 +21,14 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/api/fetch-fires-data', [ApiController::class, 'fetchFiresData'])->name('api.fetch-fires-data');
+
 
 Route::get('/',[MapController::class, 'index'])->name('index');
 Route::get('/table',[MapController::class, 'table'])->name('table');
+
+// Route::get('/api/fetch-fires-data', [ApiController::class, 'fetchFiresData'])->name('api.fetch-fires-data');
+Route::get('/api/fetch-batas-kabupaten', [ApiController::class, 'fetchBatasKabupaten'])->name('api.fetch-batas-kabupaten');
+
 
 //Create Point
 Route::post('/store-point',[PointController::class, 'store'])->name('store-point');
