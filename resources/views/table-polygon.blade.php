@@ -1,10 +1,10 @@
-@extends('layouts.template')
+@extends('layouts.sidebar')
+@section('dashboard-content')
 
-@section('content')
 <div class="container mt-4">
     <div class="card shadow">
         <div class="card-header">
-           <h3>Data Polygon</h3>
+           <h3>Data Pemetaan</h3>
     </div>
     <div class="card-body"></div>
     <table class="table table-bordered table-striped" id="example">

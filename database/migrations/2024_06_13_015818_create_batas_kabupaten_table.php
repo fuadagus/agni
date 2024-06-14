@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('batas_kabupaten', function (Blueprint $table) {
             $table->increments('id');
-            $table->multiPolygon('geom')->nullable();
+            $table->multiPolygonZ('geom')->nullable();
             $table->string('kab_kota', 27)->nullable();
         });
     }

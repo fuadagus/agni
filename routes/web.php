@@ -24,6 +24,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
 Route::get('/',[MapController::class, 'index'])->name('index');
+Route::get('/monitoring',[MapController::class, 'monitoring'])->name('monitoring');
 Route::get('/table',[MapController::class, 'table'])->name('table');
 
 // Route::get('/api/fetch-fires-data', [ApiController::class, 'fetchFiresData'])->name('api.fetch-fires-data');
@@ -77,12 +78,15 @@ Route::get('/about', function () {
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/chart', [DashboardController::class, 'chart'])->middleware(['auth', 'verified'])->name('chart');
+Route::get('/overview', [DashboardController::class, 'overview'])->middleware(['auth', 'verified'])->name('overview');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::get('/fetch-batas-kabupaten', [ApiController::class, 'fetchBatasKabupaten'])->name('api.fetch-batas-kabupaten');
 
 //table
 Route::get('/table-point', [PointController::class, 'table'])->name('table-point');

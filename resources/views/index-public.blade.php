@@ -4,22 +4,22 @@
 <style>
     html,
     body {
-        height: 100%;
+
         width: 100%;
+        overflow: hidden;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        display: none;
     }
 
-    #map {
-        height: calc(100vh - 56px);
-        width: 100%;
-        margin: 0;
-    }
+  
 </style>
 @endsection
 
 
 
 @section('content')
-<div id="map" style="width: 100vw; height: 100vh; margin: 0"></div>
+<div id="map" style="width: 100vw; height:87vh; margin: 0"></div>
 @endsection
 
 
@@ -43,7 +43,7 @@
 
 <script>
     // Map
-    var map = L.map('map').setView([-7.7956, 110.3695], 13);
+    var map = L.map('map').setView([-0.789275, 113.921327], 5);
     var markers = L.markerClusterGroup();
 
     //Basemap
@@ -51,7 +51,38 @@
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
+ // Define different basemaps
+ var openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
 
+
+    var stadiaAlidadeSmoothDark = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}', {
+        minZoom: 0,
+        maxZoom: 20,
+        attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        ext: 'png'
+    });
+
+
+
+    var esriWorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+    });
+
+    // Add the default basemap
+    stadiaAlidadeSmoothDark.addTo(map);
+
+    // Define the basemaps object for layer control
+    var baseMaps = {
+        "Stadia Alidade Smooth Dark": stadiaAlidadeSmoothDark,
+        "OpenStreetMap": openStreetMap,
+
+        "Esri World Imagery": esriWorldImagery
+    };
+
+    // Add the layer control to the map
+    L.control.layers(baseMaps).addTo(map);
 
     /* GeoJSON Point */
     var point = L.geoJson(null, {
@@ -262,6 +293,3 @@ function getColorForTemperature(temperature) {
 </script>
 @endsection
 
-</body>
-
-</html>

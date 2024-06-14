@@ -26,4 +26,24 @@ class DashboardController extends Controller
         ];
         return view('dashboard', $data);
     }
+    public function chart()
+    {
+        $data = [
+            'title' => 'Dashboard',
+            'total_points' => $this->points->count(),
+            'total_polylines' => $this->polylines->count(),
+            'total_polygons' => $this->polygons->count()
+        ];
+        return view('chart', $data);
+    }
+    public function overview()
+    {
+        $data = [
+            'title' => 'Dashboard',
+            'total_points' => $this->points->count(),
+            'total_polylines' => $this->polylines->count(),
+            'total_polygons' => $this->polygons->count()
+        ];
+        return view('dashboard', $data);
+    }
 }

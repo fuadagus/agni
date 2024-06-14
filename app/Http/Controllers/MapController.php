@@ -22,6 +22,19 @@ class MapController extends Controller
             return view('index-public', $data);
         }
     }
+    public function monitoring()
+    {
+        $data = [
+            "title" => "AGNI",
+        ];
+
+        //Check if user is login
+        if (auth()->check() ) {
+            return view('monitoring', $data);
+        } else{
+            return view('index-public', $data);
+        }
+    }
     public function table()
     {
         $data = [

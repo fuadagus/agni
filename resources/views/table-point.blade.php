@@ -1,6 +1,6 @@
-@extends('layouts.template')
+@extends('layouts.sidebar')
+@section('dashboard-content')
 
-@section('content')
 <div class="container mt-4">
     <div class="card shadow">
         <div class="card-header">
@@ -55,5 +55,3 @@
     new DataTable('#example');
 </script>
 @endsection
-
-
