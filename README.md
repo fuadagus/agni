@@ -17,7 +17,7 @@ Deskripsi Project:
 AGNI adalah aplikasi webGIS yang digunakan untuk memantau titik api di Indonesia. Data titik api yang diperoleh dari satelit NASA secara Real-time 7/24 update setiap hari. Aplikasi ini dibangun menggunakan framework Laravel dan LeafletJS. Aplikasi ini memiliki fitur-fitur seperti menampilkan titik api, menampilkan informasi temperatur, menampilkan validasi dari pemantau, routing ke titik api dan analisis resiko kebakaran.
 </p>
 <p>
-Komponen Pembangun: Laravel, LeafletJS, Bootstrap, PostGeSQL, Terraformer, NASA API, Geoserver.
+Komponen Pembangun: Laravel, LeafletJS, Bootstrap, PostGeSQL, Terraformer, NASA API, Geoserver, Brick\Geo.
 <br>
 </p>
 <p>

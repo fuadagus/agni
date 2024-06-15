@@ -34,7 +34,5 @@ class Points extends Model
         -> where('id', $id)->get();
     }
 
-    public function fire(){
-        
-    }
+   
 }

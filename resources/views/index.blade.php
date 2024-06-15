@@ -18,7 +18,7 @@
 
 @section('content')
 <div id="map" style="width: 100vw; height: 87vh; margin: 0"></div>
-@endsection
+
 <!-- Modal Create Point -->
 <div class="modal fade" id="PointModal" tabindex="-1" aria-labelledby="PointModalLabel" aria-hidden="true">
     <div class="modal-dialog">

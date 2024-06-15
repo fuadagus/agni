@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
         //create multiple users
         $user = [
             [
-                'name' => 'Admin',
+                'name' => 'fuad',
                 'phone' => '085641173515',
                 'email' => 'fuadagussalim@mail.ugm.ac.id',
                 'password' => bcrypt('12345'),

@@ -34,12 +34,12 @@
                         <div class="row">
                             <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
                                 <div class="stats-icon blue mb-2">
-                                    <i class="iconly-boldProfile"></i>
+                                <i class="iconly-boldShow"></i>
                                 </div>
                             </div>
                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                <h6 class="text-muted font-semibold">Followers</h6>
-                                <h6 class="font-extrabold mb-0">183.000</h6>
+                                <h6 class="text-muted font-semibold">Terpantau</h6>
+                                <h6 class="font-extrabold mb-0">{{$total_points}}</h6>
                             </div>
                         </div>
                     </div>
@@ -51,12 +51,12 @@
                         <div class="row">
                             <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
                                 <div class="stats-icon green mb-2">
-                                    <i class="iconly-boldAdd-User"></i>
+                                <i class="fa-solid fa-person-walking"></i>
                                 </div>
                             </div>
                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                <h6 class="text-muted font-semibold">Following</h6>
-                                <h6 class="font-extrabold mb-0">80.000</h6>
+                                <h6 class="text-muted font-semibold">Tracking</h6>
+                                <h6 class="font-extrabold mb-0">{{$total_polylines}}</h6>
                             </div>
                         </div>
                     </div>
@@ -68,12 +68,12 @@
                         <div class="row">
                             <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
                                 <div class="stats-icon red mb-2">
-                                    <i class="iconly-boldBookmark"></i>
+                                <i class="fa-solid fa-helicopter"></i>
                                 </div>
                             </div>
                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                <h6 class="text-muted font-semibold">Saved Post</h6>
-                                <h6 class="font-extrabold mb-0">112</h6>
+                                <h6 class="text-muted font-semibold">Aeral survey</h6>
+                                <h6 class="font-extrabold mb-0">{{$total_polygons}}</h6>
                             </div>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
             <div class="card-body py-4 px-4">
                 <div class="d-flex align-items-center">
                     <div class="avatar avatar-xl">
-                        <img src="./assets/compiled/jpg/1.jpg" alt="Face 1">
+                        <img src="/images/" alt="Face 1">
                     </div>
                     <div class="ms-3 name">
                         <h5 class="font-bold">
@@ -218,7 +218,7 @@
                         </h5>
                         <h6 class="text-muted text-xs mb-0">
 
-                            {{ Auth::user()->email }}
+                            {{ Auth::user()->phone }}
                         </h6>
                     </div>
                 </div>

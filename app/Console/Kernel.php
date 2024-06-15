@@ -12,7 +12,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        // Schedule your command to run daily
+        // $schedule->command('command:daily-reset')->daily()->at('02:30');
+        $schedule->command('firedata:update')->everyMinute();
     }
 
     /**
@@ -21,7 +23,12 @@ class Kernel extends ConsoleKernel
     protected function commands(): void
     {
         $this->load(__DIR__.'/Commands');
+        
+        $this->load(__DIR__.'/Commands/UpdateFireData.php');
+     
 
+        
+    
         require base_path('routes/console.php');
     }
 }

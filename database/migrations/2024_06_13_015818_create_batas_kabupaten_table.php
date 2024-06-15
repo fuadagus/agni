@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('batas_kabupaten', function (Blueprint $table) {
-            $table->increments('id');
-            $table->multiPolygonZ('geom')->nullable();
+            $table->id();
+            $table->geometry('geom', 4326);
             $table->string('kab_kota', 27)->nullable();
         });
     }
