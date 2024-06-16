@@ -30,4 +30,4 @@ Route::get('/polyline/{id}', [PolylineController::class, 'show'])->name('api.pol
 Route::get('/polygons', [PolygonController::class, 'index'])->name('api.polygons');
 Route::get('/polygon/{id}', [PolygonController::class, 'show'])->name('api.polygon');
 Route::get('/api/fetch-fires-data', [ApiController::class, 'fetchFiresData'])->name('api.fetch-fires-data');
-Route::get('/fetch-batas-kabupaten', [ApiController::class, 'fetchBatasKabupaten'])->name('api.fetch-batas-kabupaten');
+Route::get('/fetch-batas-provinsi', [ApiController::class, 'fetchBatasProvinsi'])->name('api.fetch-batas-provinsi');

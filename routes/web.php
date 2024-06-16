@@ -86,7 +86,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('/fetch-batas-kabupaten', [ApiController::class, 'fetchBatasKabupaten'])->name('api.fetch-batas-kabupaten');
+Route::get('/fetch-batas-provinsi', [ApiController::class, 'fetchBatasProvinsi'])->name('api.fetch-batas-provinsi');
 
 //table
 Route::get('/table-point', [PointController::class, 'table'])->name('table-point');
